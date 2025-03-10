@@ -1,128 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN PAGE</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - InfinitVCC</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column; /* Ensure vertical stacking of header and content */
+      margin-top: 0;
+    }
 
-        .header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #ff4757;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+    /* Header */
+    header {
+      background-color: #E63946; /* Reddish color */
+      width: 100%;
+      padding: 10px 0;
+      text-align: center;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
 
-        .login-container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-        }
+    /* Main Container */
+    .container {
+      background: white;
+      width: 100%;
+      max-width: 420px;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 70px; /* Ensure the container is below the header */
+    }
 
-        .login-container h2 {
-            margin-bottom: 20px;
-            color: #333;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 24px;
-        }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
 
-        .login-container input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
 
-        .login-container input:focus {
-            border-color: #ff4757;
-        }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
 
-        .login-container button {
-            width: 100%;
-            padding: 12px;
-            background-color: #ff4757;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s ease;
-        }
+    button:hover {
+      background-color: #45a049;
+    }
 
-        .login-container button:hover {
-            background-color: #ff6b81;
-        }
+    .google-signin-button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4285F4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
 
-        .register-text {
-            margin-top: 15px;
-            font-size: 14px;
-            color: #555;
-        }
+    .google-signin-button:hover {
+      background-color: #357AE8;
+    }
 
-        .register-text a {
-            color: #ff4757;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
+    .register-button {
+      width: 100%;
+      padding: 12px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 15px;
+    }
 
-        .register-text a:hover {
-            color: #ff6b81;
-        }
-    </style>
+    .register-button:hover {
+      background-color: #2980b9;
+    }
+
+  </style>
 </head>
 <body>
 
-    <div class="header">
-        INFINITVCC
-    </div>
+  <!-- Header Section -->
+  <header>
+    InfinitVCC
+  </header>
 
-    <div class="login-container">
-        <h2>LOGIN</h2>
-        <form id="loginForm">
-            <input type="email" id="email" name="email" placeholder="EMAIL" required>
-            <input type="password" id="password" name="password" placeholder="PASSWORD" required>
-            <button type="button" onclick="redirectToDashboard()">LOGIN</button>
-        </form>
-        <div class="register-text">
-            DON'T HAVE AN ACCOUNT? <a href="registration.html">REGISTER</a>
-        </div>
-    </div>
+  <!-- Login Form Section -->
+  <div class="container">
+    <h2>Login</h2>
+    <form id="login-form">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
 
-    <script>
-        function redirectToDashboard() {
-            // You can add form validation here if needed
-            window.location.href = "dashboard.html";
-        }
-    </script>
+    <!-- Google Sign-In Button -->
+    <button class="google-signin-button" id="google-signin-button">Login with Google</button>
+
+    <!-- Register Button -->
+    <a href="register.html">
+      <button class="register-button">Don't have an account? Register</button>
+    </a>
+  </div>
+
+  <!-- Firebase SDK (Modular version) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDcKue5UwxmpR2hVEoALaBhGIPitaim7lk",
+      authDomain: "taretaer-e0a45.firebaseapp.com",
+      projectId: "taretaer-e0a45",
+      storageBucket: "taretaer-e0a45.firebasestorage.app",
+      messagingSenderId: "45975842004",
+      appId: "1:45975842004:web:30766389b42f2511a8df41",
+      measurementId: "G-W3SSVZM3HR"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Google Auth Provider
+    const googleProvider = new GoogleAuthProvider();
+
+    // Get the form and success message elements
+    const form = document.getElementById('login-form');
+    const googleSignInButton = document.getElementById('google-signin-button');
+
+    // Login with email and password
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Successful login
+          const user = userCredential.user;
+          // Redirect to dashboard after successful login
+          window.location.href = 'dashboard.html';
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(`Error: ${errorMessage}`);
+        });
+    });
+
+    // Login with Google
+    googleSignInButton.addEventListener('click', () => {
+      signInWithPopup(auth, googleProvider)
+        .then((result) => {
+          const user = result.user;
+          // Redirect to dashboard after successful login
+          window.location.href = 'dashboard.html';
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(`Error: ${errorMessage}`);
+        });
+    });
+  </script>
 
 </body>
 </html>
